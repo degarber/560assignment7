@@ -209,7 +209,9 @@ class ComputerPlayer:
         row_index = 0
         column_index = 0
 
-        # positioning each boat
+        # positioning each boat, I used chatgpt 6 luna on promptlab to help transform the
+        # user input format of humanplayer to pick random spots, the above is my work and the
+        # below is AI building off of it for position_fleet
         for boat in self.fleet:
             # first pick h or v
             orientation = random.choice(["h", "v"])
@@ -229,6 +231,7 @@ class ComputerPlayer:
             boat.set_orientation(orientation)
 
             if orientation == "h":
+                # the 5 and 10 were suggestions from AI for how to avoid overlap
                 x = random.randint(0, 5 - boat.size)
                 # keep horizontal boats in one part of the board so no overlap
                 y = lane
